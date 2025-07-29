@@ -34,13 +34,17 @@ export default function Navigation() {
 
   return (
     <>
-      <SidebarHeader className="flex items-center justify-start gap-2">
-        <SidebarTrigger />
-        <Link href="/" className="block">
-          <h1 className="text-lg font-headline text-center text-sidebar-foreground">
-            🧑‍💻 Yusuf’un Blogu
-          </h1>
-        </Link>
+      <SidebarHeader>
+        <div className="flex items-center justify-center py-2">
+            <Link href="/" className="block">
+            <h1 className="text-lg font-headline text-center text-sidebar-foreground">
+                🧑‍💻 Yusuf’un Blogu
+            </h1>
+            </Link>
+        </div>
+        <div className="flex justify-start">
+            <SidebarTrigger />
+        </div>
       </SidebarHeader>
       <SidebarContent>
         <SidebarMenu>
