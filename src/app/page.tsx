@@ -1,4 +1,3 @@
-
 'use client';
 
 import { useEffect, useState, useCallback } from 'react';
@@ -6,7 +5,6 @@ import { supabase } from '@/lib/supabase';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import Image from 'next/image';
-import { useIsMobile } from '@/hooks/use-mobile';
 import { CalendarDays, ArrowRightCircle } from 'lucide-react';
 
 interface Post {
@@ -21,7 +19,6 @@ export default function HomePage() {
   const [latestPosts, setLatestPosts] = useState<Post[]>([]);
   const [loading, setLoading] = useState(true);
   const [fetchError, setFetchError] = useState<string | null>(null);
-  const isMobile = useIsMobile();
 
   const fetchLatestPosts = useCallback(async () => {
     try {
@@ -78,7 +75,7 @@ export default function HomePage() {
       <section className="mb-8">
         <h2 className="text-3xl font-bold text-center mb-6">Son Yazılar</h2>
         {latestPosts.length > 0 ? (
-          <div className={`grid gap-6 ${isMobile ? 'grid-cols-1' : 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3'}`}>
+          <div className="grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
             {latestPosts.map((post, index) => (
               <div key={post.id} className="border rounded-lg overflow-hidden shadow-lg flex flex-col">
                 {post.image_url && (

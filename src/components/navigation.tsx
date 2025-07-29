@@ -8,6 +8,7 @@ import {
   SidebarMenuItem,
   SidebarMenuButton,
   SidebarSeparator,
+  SidebarTrigger,
 } from '@/components/ui/sidebar';
 import { Home, FileText, Image, UploadCloud, Mail, PenSquare, Shield } from 'lucide-react';
 import Link from 'next/link';
@@ -32,12 +33,13 @@ export default function Navigation() {
 
   return (
     <>
-      <SidebarHeader>
+      <SidebarHeader className="flex items-center justify-between">
         <Link href="/" className="block">
           <h1 className="text-2xl font-headline text-center px-2 py-4 text-sidebar-foreground">
             🧑‍💻 Yusuf’un Blogu
           </h1>
         </Link>
+        <SidebarTrigger />
       </SidebarHeader>
       <SidebarContent>
         <SidebarMenu>
@@ -47,6 +49,7 @@ export default function Navigation() {
                 asChild
                 isActive={pathname === link.href}
                 className="justify-start"
+                tooltip={link.label}
               >
                 <Link href={link.href}>
                   <link.icon className="size-4 mr-2" />
@@ -65,6 +68,7 @@ export default function Navigation() {
                 asChild
                 isActive={pathname === link.href}
                 className="justify-start"
+                tooltip={link.label}
               >
                 <Link href={link.href}>
                   <link.icon className="size-4 mr-2" />
@@ -87,6 +91,7 @@ export default function Navigation() {
                             className="justify-start"
                             size="icon"
                             variant="ghost"
+                            tooltip="Yönetici Paneli"
                         >
                             <Link href="/admin">
                             <Shield className="size-4" />
