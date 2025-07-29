@@ -12,6 +12,7 @@ import {
 import { Home, FileText, Image, UploadCloud, Mail, PenSquare, Shield } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { ThemeToggle } from './theme-toggle';
 
 const links = [
   { href: '/', label: 'Ana Sayfa', icon: Home },
@@ -77,20 +78,25 @@ export default function Navigation() {
       </SidebarContent>
        <SidebarFooter>
           <SidebarSeparator className="my-2"/>
-            <SidebarMenu>
-                 <SidebarMenuItem>
-                    <SidebarMenuButton
-                        asChild
-                        isActive={pathname.startsWith('/admin') || pathname === '/giris'}
-                        className="justify-start"
-                    >
-                        <Link href="/admin">
-                        <Shield className="size-4 mr-2" />
-                        <span>Yönetici Paneli</span>
-                        </Link>
-                    </SidebarMenuButton>
-                </SidebarMenuItem>
-            </SidebarMenu>
+            <div className="flex items-center justify-between px-2">
+                <SidebarMenu className="flex-row !gap-0.5">
+                    <SidebarMenuItem>
+                        <SidebarMenuButton
+                            asChild
+                            isActive={pathname.startsWith('/admin') || pathname === '/giris'}
+                            className="justify-start"
+                            size="icon"
+                            variant="ghost"
+                        >
+                            <Link href="/admin">
+                            <Shield className="size-4" />
+                            <span className="sr-only">Yönetici Paneli</span>
+                            </Link>
+                        </SidebarMenuButton>
+                    </SidebarMenuItem>
+                </SidebarMenu>
+                <ThemeToggle />
+            </div>
        </SidebarFooter>
     </>
   );
