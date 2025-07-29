@@ -1,3 +1,4 @@
+
 'use client';
 
 import {
@@ -33,13 +34,13 @@ export default function Navigation() {
 
   return (
     <>
-      <SidebarHeader className="flex items-center justify-between">
+      <SidebarHeader className="flex items-center justify-start gap-2">
+        <SidebarTrigger />
         <Link href="/" className="block">
-          <h1 className="text-2xl font-headline text-center px-2 py-4 text-sidebar-foreground">
+          <h1 className="text-lg font-headline text-center text-sidebar-foreground">
             🧑‍💻 Yusuf’un Blogu
           </h1>
         </Link>
-        <SidebarTrigger />
       </SidebarHeader>
       <SidebarContent>
         <SidebarMenu>
